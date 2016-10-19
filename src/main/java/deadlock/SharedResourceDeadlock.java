@@ -1,3 +1,5 @@
+package deadlock;
+
 /**
  * Created by Sergey_Stefoglo on 10/17/2016.
  */

@@ -1,3 +1,7 @@
+package runner;
+
+import deadlock.RealisticDeadlock;
+
 /**
  * Created by Sergey_Stefoglo on 10/17/2016.
  */
@@ -8,22 +12,22 @@ public class SecondRunner {
         final RealisticDeadlock firstThread = new RealisticDeadlock("FirstThread");
         final RealisticDeadlock secondThread = new RealisticDeadlock("SecondThread");
 
-        // Lock
+
         new Thread(() -> {
-            firstThread.bow(secondThread);
+            firstThread.connect(secondThread);
         }).start();
 
-        // Lock
+
         new Thread(() -> {
-            secondThread.bow(firstThread);
+            secondThread.connect(firstThread);
         }).start();
 
-        // Additional first object lock
+
         new Thread(firstThread::tryGetResource).start();
         new Thread(firstThread::tryGetResource).start();
         new Thread(firstThread::tryGetResource).start();
 
-        //Additional second object lock
+
         new Thread(secondThread::tryGetResource).start();
         new Thread(secondThread::tryGetResource).start();
         new Thread(secondThread::tryGetResource).start();
