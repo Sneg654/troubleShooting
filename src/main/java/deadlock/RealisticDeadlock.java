@@ -9,8 +9,13 @@ public class RealisticDeadlock extends SimpleDeadlock {
         super(name);
     }
 
-    public synchronized void tryGetResource() {
-        System.out.format("try to get resource", Thread.currentThread().getName());
+    public synchronized void tryGetResource()   {
+     try{
+        Thread.currentThread().sleep(3000);
+        System.out.format("%s try to get resource %n", Thread.currentThread().getName());
+     }catch (Exception e){
+         e.printStackTrace();
+     }
     }
 
 }

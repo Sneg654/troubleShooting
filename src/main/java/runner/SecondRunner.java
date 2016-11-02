@@ -31,6 +31,7 @@ public class SecondRunner {
         new Thread(secondThread::tryGetResource).start();
         new Thread(secondThread::tryGetResource).start();
         new Thread(secondThread::tryGetResource).start();
+
     }
 
 }

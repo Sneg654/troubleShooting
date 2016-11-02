@@ -15,11 +15,11 @@ public class SimpleDeadlock {
     }
 
     public synchronized void connect(SimpleDeadlock bower) {
-        System.out.format("%s: %s" + "  has connect to me!%n", this.name, bower.getName());
+        System.out.format("%s" + " connect to %s%n", this.name, bower.getName());
         bower.reConnect(this);
     }
 
     public synchronized void reConnect(SimpleDeadlock bower) {
-        System.out.format("%s: %s" + " has reconnect to me!%n", this.name, bower.getName());
+        System.out.format("%s" + " reconnect to %s%n",  bower.getName(),this.name);
     }
 }

@@ -17,11 +17,17 @@ public class SharedResourceDeadlock {
     }
 
     public synchronized void get(SharedResourceDeadlock thread) {
+        try{
         System.out.format("%s: %s" + "  has got to me!%n", this.name, thread.getName());
+        Thread.sleep(3000);
         thread.call(this);
+        }catch (InterruptedException e){
+            e.printStackTrace();
+        }
     }
 
     public synchronized void call(SharedResourceDeadlock thread) {
+
         System.out.format("%s: %s" + " has got back to me!%n", this.name, thread.getName());
     }
 }

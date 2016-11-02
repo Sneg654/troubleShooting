@@ -12,20 +12,20 @@ public class ThirdRunner {
         final SharedResourceDeadlock thirdTread = new SharedResourceDeadlock("3");
         final SharedResourceDeadlock fourthThread = new SharedResourceDeadlock("4");
 
-        new Thread(() -> {
-            firstTread.get(secondTread);
-        }).start();
+     new Thread(() -> {
+         firstTread.get(secondTread);
+     }).start();
 
-        new Thread(() -> {
-            secondTread.get(thirdTread);
-        }).start();
+     new Thread(() -> {
+         secondTread.get(thirdTread);
+     }).start();
 
-        new Thread(() -> {
-            thirdTread.get(fourthThread);
-        }).start();
+     new Thread(() -> {
+         thirdTread.get(fourthThread);
+     }).start();
 
-        new Thread(() -> {
-            fourthThread.get(firstTread);
-        }).start();
+     new Thread(() -> {
+         fourthThread.get(firstTread);
+     }).start();
     }
 }
